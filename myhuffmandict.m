@@ -1,9 +1,4 @@
-% [dict,avglen] = huffmandict(symbols,p)
-
-
-% symbols must be a cell array of symbols and p a vector with the corresponding
-% propabilities
-function [dict, avglen] = myhuffmandict(symbols, p)
+function dict = myhuffmandict(symbols, p)
 
 [~, n] = size(symbols);
 [~, idx] = sort(-p);
