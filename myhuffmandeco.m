@@ -1,5 +1,5 @@
 function dsig = myhuffmandeco(comp,dict) % comp must be a numeric vector (row or col)
-dsig = []
+dsig = {};
 [n1, n2] = size(comp);
 if n1 > n2
     n = n1;

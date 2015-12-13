@@ -1,4 +1,9 @@
-function comp = myhuffmanenco(sig, dict) %sig must be a numeric vector (row or col)
+function comp = myhuffmanenco(sig, dict) %sig can be a numeric vector (row or col) or a cell aray
+if iscell(sig)
+    type = 'c';
+else
+    type = 'v';
+end
 [n1, n2] = size(sig);
 if n1 > n2
     n = n1;
@@ -9,6 +14,9 @@ dictSize = size(dict,1);
 
 comp = [];
 function code = getCode(value)
+if type == 'c'
+    value = cell2mat(value);
+end
 for j = 1:dictSize
     if cell2mat(dict(j,1)) == value
         code = cell2mat(dict(j,2));
