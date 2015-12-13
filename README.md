@@ -15,7 +15,7 @@ Those functions can be found for Octave but are not bundled in the official vers
 git clone git@github.com:PGryllos/nhuff.git
 cd nhuff && TMP=$(pwd)
 echo 'addpath("'$TMP'")' > ~/.octaverc
-mv myhuffmandict.m huffmandict.m && mv myhuffmanenco.m huffmanenco.m && mv myhuffmandeco huffmandeco.m
+mv myhuffmandict.m huffmandict.m && mv myhuffmanenco.m huffmanenco.m && mv myhuffmandeco.m huffmandeco.m
 ```
 Be carefull, in case you already have similar functions installed by another package don't execute the last line and 
 instead refer to the functions with the prefix `my`
