@@ -17,11 +17,11 @@ function code = getCode(value)
 if type == 'c'
     value = cell2mat(value);
 end
-for j = 1:dictSize
-    if cell2mat(dict(j,1)) == value
-        code = cell2mat(dict(j,2));
-        break;
-    end
+idx = find(cell2mat(dict(:,1))==value);
+if ~isempty(idx)
+    code = cell2mat(dict(idx,2));
+else
+    code = NaN;
 end
 end
 i = 1;
