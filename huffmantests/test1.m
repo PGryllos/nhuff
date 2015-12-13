@@ -22,25 +22,44 @@ end
 
 % encode sigA based on dictA
 compA = myhuffmanenco(sigA, dictA);
-disp('Signal A encoded')
+compASize = size(compA, 2)
+disp(sprintf('Signal A encoded, size of encoding %g characters', compASize));
 
 % decode signal using dictA
 dsigA = myhuffmandeco(compA, dictA);
-disp('Signal A decoded')
+disp('Signal A decoded');
 
 % check if the decodes signal matches the original
 cmp = cellfun(@strcmp, sigA, dsigA);
 if size(find(cmp),2) == 10000
+    disp('No errors found');
+else
+    disp('Something is going wrong');
+end
+
+% testing on a given text filower(sigB(i))le with the same probabilities as previously
+sigB = {};
+fstream = fopen('kwords.txt');
+
+sigB(1) = fgetl(fstream);
+while ~feof(fstream)
+    sigB(size(sigB,2)+1) = lower(fgetl(fstream));
+end
+sigB = cell2mat(sigB);
+%manually remove symbols that don't belong in the alphabet (e.g. '-','=')
+sigB(regexp(sigB,'[^a-z]')) = [];
+
+% encode signal based on dictA
+compB = myhuffmanenco(sigB, dictA);
+compBSize = size(compB,2)
+disp(sprintf('Signal B encoded, size of encoding %g characters', compBSize));
+
+% decode signal using dictA
+dsigB = myhuffmandeco(compB, dictA);
+disp('Signal B decoded')
+
+if strcmp(sigB, cell2mat(dsigB))
     disp('No errors found')
 else
     disp('Something is going wrong')
 end
-
-% testing on a given text filower(sigB(i))le with the same probabilities as previously
-   %sigB = {};
-   %fstream = fopen('kwords.txt');
-
-   %sigB(1) = fgetl(fstream);
-   %while ischar(char(sigB(size(sigB,2))))
-   %    sigB(size(sigB,2)) = fgetl(fstream);
-   %end
