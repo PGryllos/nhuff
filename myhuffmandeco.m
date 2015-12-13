@@ -12,7 +12,12 @@ function symbol = getSymbol(code)
 symbol = NaN;
 for j = 1:dictSize
     tmpCode = cell2mat(dict(j,2));
-    if tmpCode == code && size(tmpCode) == size(code)
+    tmpCodeSize = size(tmpCode, 2);
+    codeSize = size(code, 2);
+    if tmpCodeSize > codeSize
+        break;
+    end
+    if codeSize == tmpCodeSize && tmpCode == code
         symbol = cell2mat(dict(j,1));
         break;
     end
