@@ -8,7 +8,7 @@ Implementation of the three Huffman coding functions mentioned bellow as part of
  * myhuffmandeco - Huffman decoder
 
 #### using the repository
-Those functions can be found for Octave but are not bundled in the official version. So instead of searching, downloading and installing the right packages you can instead use this repository. I tried to maintain as much compatibillity as possible with mathworks specifications for those functions.
+Those functions can be found for Octave but are not bundled with the official version. So instead of searching, downloading and installing the right packages you can instead use this repository. I tried to maintain as much compatibillity as possible with mathworks specifications for those functions.
 
 **download** and **install** (for *nix users)
 ```bash
