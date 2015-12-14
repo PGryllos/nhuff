@@ -74,9 +74,7 @@ traverse(n);
 
 n = (n+1)/2;
 dict = cell(n,2);
-for i = 1:n
-    dict(i,1) = symbols(i);
-end
+dict(:,1) = adjList(1:n,1);
 dict(:,2) = adjList(1:n,6);
 
 end
